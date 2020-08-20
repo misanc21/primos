@@ -98,3 +98,14 @@ input[type="time"] {
   text-align: center;
   font-family:  'Staatliches', cursive;
 } 
+
+.subtitulos {
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.titulo {
+  padding: 20px 0 0 0;
+  margin-bottom: 10px;;
+} 
