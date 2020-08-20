@@ -1,6 +1,21 @@
-import React, {Fragment} from 'react'
+import React, {Fragment, useState} from 'react'
 
 const Formulario = () => {
+    const [datos, setDatos] = useState({
+        primo: '',
+        padre: '',
+        fecha: ''
+    })
+
+    let {primo, padre, fecha} = datos
+
+    const actualizaState = e => {
+        setDatos({
+            ...datos,
+            [e.target.name] : e.target.value
+        })
+    }
+
     return (
         <Fragment>
             <h3>Datos</h3>
@@ -11,9 +26,11 @@ const Formulario = () => {
                     name="primo"
                     className="u-full-width"
                     placeholder="ingresa el nombre del primo"
+                    onChange={actualizaState}
+                    value={primo}
                 />
                 <label>Nombre de mamá/papá</label>
-                <select className="u-full-width">
+                <select className="u-full-width" name="padre" onChange={actualizaState} value={padre}>
                     <option value="Araceli">Araceli</option>
                     <option value="Patricia">Patricia</option>
                     <option value="Elvia">Elvia</option>
@@ -37,6 +54,8 @@ const Formulario = () => {
                     name="fecha"
                     className="u-full-width"
                     placeholder="ingresa fecha de nac del primo"
+                    onChange={actualizaState}
+                    value={fecha}
                 />
                 <button
                     type="submit"
