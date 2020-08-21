@@ -1,6 +1,8 @@
 import React, {Fragment, useState} from 'react'
+import { v4 as uuidv4 } from 'uuid'
 
-const Formulario = () => {
+const Formulario = ({crearPrimo}) => {
+    const [error, setError] = useState (false)
     const [datos, setDatos] = useState({
         primo: '',
         padre: '',
@@ -16,10 +18,28 @@ const Formulario = () => {
         })
     }
 
+    const submitPrimo = e => {
+        e.preventDefault();
+
+        if (primo.trim === '' || padre === '' || fecha.trim === ''){
+            setError(true)
+            return
+        }
+        setError(false)
+        datos.id = uuidv4()
+        crearPrimo(datos)
+        setDatos({
+            primo: '',
+            padre: '',
+            fecha: ''
+        })
+    }
+
     return (
         <Fragment>
             <h3>Datos</h3>
-            <form>
+            {error ? <p className="alerta-error">Todos los campos son obligatorios</p>:null}
+            <form onSubmit={submitPrimo}>
                 <label>Nombre del primo</label>
                 <input
                     type="text"

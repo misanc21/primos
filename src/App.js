@@ -1,7 +1,19 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useState} from 'react';
 import Formulario from './components/Formulario'
 
 function App() {
+
+  const [primos, setPrimos] = useState ([])
+
+  const crearPrimo = primo =>{
+    setPrimos ({
+      ...primos,
+      primo
+    })
+  }
+
+  
+
   return (
     <Fragment>
       <h1 className="titulo">¿Cuántos primos somos?</h1>
@@ -10,7 +22,9 @@ function App() {
       <div className="container">
         <div className="row">
           <div className="one-half column">
-            <Formulario/>
+            <Formulario
+              crearPrimo = {crearPrimo}
+            />
           </div>
           <div className="one-half column">
 
