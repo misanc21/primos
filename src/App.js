@@ -20,9 +20,9 @@ function App() {
     ])
   }
 
-  const eliminarPrimo = id =>{
+  /*const eliminarPrimo = id =>{
     setPrimos(primos.filter(p => p.id !== id))
-  }
+  }*/
 
   return (
     <Fragment>

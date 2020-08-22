@@ -1,7 +1,7 @@
 import React from 'react'
 import { withStyles, makeStyles, useTheme } from '@material-ui/core/styles';
 import TableContainer from '@material-ui/core/TableContainer';
-import { Table, TableBody, TableCell, TableHead, TableRow, Paper, TablePagination, TableFooter, IconButton, TableSortLabel, Toolbar, Typography, Tooltip } from '@material-ui/core';
+import { Table, TableBody, TableCell, TableHead, TableRow, Paper, TablePagination, TableFooter, IconButton, TableSortLabel } from '@material-ui/core';
 import FirstPageIcon from '@material-ui/icons/FirstPage';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
@@ -86,7 +86,7 @@ function descendingComparator(a, b, orderBy) {
   ];
 
   function EnhancedTableHead(props) {
-    const { classes, order, orderBy, numSelected, rowCount, onRequestSort } = props;
+    const { classes, order, orderBy, onRequestSort } = props;
     const createSortHandler = (property) => (event) => {
       onRequestSort(event, property);
     };
