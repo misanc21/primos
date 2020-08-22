@@ -1,6 +1,6 @@
 import React, {Fragment, useState, useEffect} from 'react';
 import Formulario from './components/Formulario'
-import Primo from './components/Primo'
+import TablePrimos from './components/TablePrimos'
 
 function App() {
 
@@ -30,22 +30,20 @@ function App() {
       <p className="subtitulos">Registrate para saber cuantos primos somos en la familia cortés</p>
       
       <div className="container">
-        <div className="row">
-          <div className="one-half column">
+        <div className="row area-form">
+          <div className="twelve columns">
             <Formulario
               crearPrimo = {crearPrimo}
             />
           </div>
-          <div className="one-half column">
+        </div>
+        <div className="row">
+          <div className="twelve columns">
             {primos.length === 0 ? <h3>No hay primos</h3> : <h3>Primos</h3>}
             {
-              primos.map(prim => (
-                <Primo
-                  key= {prim.id}
-                  primoe = {prim}
-                  eliminar = {eliminarPrimo}
-                />)
-              )
+              <TablePrimos 
+                arrayPrimos = {primos}
+              />
             }
           </div>
         </div>
