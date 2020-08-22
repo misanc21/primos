@@ -9,6 +9,10 @@ function App() {
 
   const [primos, setPrimos] = useState (primosStorage)
 
+  useEffect(()=>{
+    localStorage.setItem('primos', JSON.stringify(primos))
+  }, [primos])
+
   const crearPrimo = primo =>{
     setPrimos ([
       ...primos,
@@ -16,9 +20,9 @@ function App() {
     ])
   }
 
-  useEffect(()=>{
-    localStorage.setItem('primos', JSON.stringify(primos))
-  }, [primos])
+  const eliminarPrimo = id =>{
+    setPrimos(primos.filter(p => p.id !== id))
+  }
 
   return (
     <Fragment>
@@ -39,6 +43,7 @@ function App() {
                 <Primo
                   key= {prim.id}
                   primoe = {prim}
+                  eliminar = {eliminarPrimo}
                 />)
               )
             }
