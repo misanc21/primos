@@ -1,5 +1,5 @@
 import React from 'react'
-import { withStyles, makeStyles, useTheme, lighten } from '@material-ui/core/styles';
+import { withStyles, makeStyles, useTheme } from '@material-ui/core/styles';
 import TableContainer from '@material-ui/core/TableContainer';
 import { Table, TableBody, TableCell, TableHead, TableRow, Paper, TablePagination, TableFooter, IconButton, TableSortLabel, Toolbar, Typography, Tooltip } from '@material-ui/core';
 import FirstPageIcon from '@material-ui/icons/FirstPage';
@@ -16,7 +16,8 @@ const StyledTableCell = withStyles((theme) => ({
     },
     body: {
         fontSize: 12,
-    }
+    },
+    
 }))(TableCell);
 
 const StyledTableRow = withStyles((theme) => ({
@@ -24,7 +25,7 @@ const StyledTableRow = withStyles((theme) => ({
         '&:nth-of-type(odd)': {
             backgroundColor: theme.palette.action.hover,
         },
-    },
+    }
 }))(TableRow);
 
 const useStyles = makeStyles((theme)=>({
@@ -50,6 +51,7 @@ const useStyles = makeStyles((theme)=>({
         top: 20,
         width: 1,
       },
+      
 }));
 //filtros
 function descendingComparator(a, b, orderBy) {
