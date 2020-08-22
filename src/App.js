@@ -1,15 +1,16 @@
 import React, {Fragment, useState} from 'react';
 import Formulario from './components/Formulario'
+import Primo from './components/Primo'
 
 function App() {
 
   const [primos, setPrimos] = useState ([])
 
   const crearPrimo = primo =>{
-    setPrimos ({
+    setPrimos ([
       ...primos,
       primo
-    })
+    ])
   }
 
   
@@ -27,7 +28,15 @@ function App() {
             />
           </div>
           <div className="one-half column">
-
+            {primos.length === 0 ? <h3>No hay primos</h3> : <h3>Primos</h3>}
+            {
+              primos.map(prim => (
+                <Primo
+                  key= {prim.id}
+                  primoe = {prim}
+                />)
+              )
+            }
           </div>
         </div>
       </div>
