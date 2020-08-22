@@ -1,10 +1,13 @@
-import React, {Fragment, useState} from 'react';
+import React, {Fragment, useState, useEffect} from 'react';
 import Formulario from './components/Formulario'
 import Primo from './components/Primo'
 
 function App() {
 
-  const [primos, setPrimos] = useState ([])
+  let primosStorage = JSON.parse(localStorage.getItem('primos'))
+  {!primosStorage ? primosStorage = []: primosStorage = primosStorage}
+
+  const [primos, setPrimos] = useState (primosStorage)
 
   const crearPrimo = primo =>{
     setPrimos ([
@@ -13,7 +16,9 @@ function App() {
     ])
   }
 
-  
+  useEffect(()=>{
+    localStorage.setItem('primos', JSON.stringify(primos))
+  }, [primos])
 
   return (
     <Fragment>
